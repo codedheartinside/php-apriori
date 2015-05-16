@@ -102,7 +102,39 @@ class Input implements InputInterface
 
         $file = fopen($tempFile, 'a');
 
-        fwrite($file, $this->parser->parse(array('itemId' => $itemId, 'count' => $count)) . PHP_EOL);
+        fwrite(
+            $file,
+            $this->parser->parse(array('itemId' => $itemId, 'count' => $count)) . PHP_EOL
+        );
+
+        fclose($file);
+
+        return $this;
+    }
+
+    public function flushSupportItems()
+    {
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+        $tempFile = $tempDirectory . '/support.txt';
+
+        $file = fopen($tempFile, 'w+');
+
+        fclose($file);
+
+        return $this;
+    }
+
+    public function addSupportOnItemIdAndSupport($itemId, $support)
+    {
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+        $tempFile = $tempDirectory . '/support.txt';
+
+        $file = fopen($tempFile, 'a');
+
+        fwrite(
+            $file,
+            $this->parser->parse(array('itemId' => $itemId, 'support' => $support)) . PHP_EOL
+        );
 
         fclose($file);
 

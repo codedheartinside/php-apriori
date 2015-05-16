@@ -1,0 +1,7 @@
+{"itemId":1,"support":0.46153846153846}
+{"itemId":2,"support":0.61538461538462}
+{"itemId":3,"support":0.46153846153846}
+{"itemId":4,"support":0.30769230769231}
+{"itemId":6,"support":0.15384615384615}
+{"itemId":8,"support":0.46153846153846}
+{"itemId":5,"support":0.15384615384615}

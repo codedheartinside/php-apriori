@@ -36,9 +36,9 @@ class Output implements OutputInterface
         $tempDirectory = $this->projectConfiguration->getTempDirectory();
         $tempFile = $tempDirectory . '/data_set.txt';
 
-        $dataSetFile = fopen($tempFile, 'r');
+        $file = fopen($tempFile, 'r');
 
-        while ($line = fgets($dataSetFile)) {
+        while ($line = fgets($file)) {
             if (empty($line)) {
                 break;
             }
@@ -46,8 +46,24 @@ class Output implements OutputInterface
             yield $this->parser->unparse($line);
         }
 
-        fclose($dataSetFile);
+        fclose($file);
     }
 
+    public function getThresholdItem()
+    {
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+        $tempFile = $tempDirectory . '/threshold.txt';
 
+        $file = fopen($tempFile, 'r');
+
+        while ($line = fgets($file)) {
+            if (empty($line)) {
+                break;
+            }
+
+            yield $this->parser->unparse($line);
+        }
+
+        fclose($file);
+    }
 }

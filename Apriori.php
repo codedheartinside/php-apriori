@@ -15,6 +15,7 @@ namespace Bearwulf\DataMining\Apriori;
 
 use Bearwulf\DataMining\Apriori\ConfigurationInterface;
 use Bearwulf\DataMining\Apriori\Threshold;
+use Bearwulf\DataMining\Apriori\Support;
 
 
 /**
@@ -27,17 +28,19 @@ class Apriori
 {
     private $projectConfiguration;
     private $threshold;
+    private $support;
 
     public function __construct(ConfigurationInterface $configuration)
     {
         $this->projectConfiguration = $configuration;
 
         $this->threshold = new Threshold($configuration);
+        $this->support = new Support($configuration);
     }
 
     public function run()
     {
         $this->threshold->createThreshold();
-//        $this->threshold->removeItemsWithThresholdBelowMinimum();
+        $this->support->createSupport();
     }
 }
