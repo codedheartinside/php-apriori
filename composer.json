@@ -24,7 +24,7 @@
   },
   "autoload-dev": {
     "psr-4": {  
-      "Bearwulf\\DataMining\\Apriori\\Test\\": "Tests"
+      "Bearwulf\\DataMining\\Apriori\\Tests\\": "Tests"
     }
   },
   "extra": {
