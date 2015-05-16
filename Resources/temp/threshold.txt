@@ -1,0 +1,7 @@
+{"itemId":1,"count":6}
+{"itemId":2,"count":8}
+{"itemId":3,"count":6}
+{"itemId":4,"count":4}
+{"itemId":6,"count":2}
+{"itemId":8,"count":6}
+{"itemId":5,"count":2}

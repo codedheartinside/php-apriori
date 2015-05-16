@@ -11,9 +11,7 @@
     }
   ],
   "require": {
-    "php" : ">=5.4.0",
-    "symfony/class-loader": "~2.6",
-    "doctrine/orm": "~2.5",
+    "php" : ">=5.5.0",
     "symfony/yaml": "~2.6"
   },
   "require-dev": {
