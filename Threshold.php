@@ -43,22 +43,14 @@ class Threshold
                     continue;
                 }
 
-                $transactionItems[] = $item;
+                if (! isset($transactionItems[$item])) {
+                    $transactionItems[$item] = 0;
+                }
+                $transactionItems[$item] ++;
             }
         }
 
-        foreach ($transactionItems as $itemId) {
-            $itemCount = 0;
-            foreach ($this->outputData->getDataSetRecord() as $record) {
-                foreach ($this->transaction->getTransactionItems($record) as $item) {
-                    if ($item != $itemId) {
-                        continue;
-                    }
-
-                    $itemCount ++;
-                }
-            }
-
+        foreach ($transactionItems as $itemId => $itemCount) {
             if ($itemCount >= $this->projectConfiguration->getMinimumThreshold()) {
                 $this->inputData->addThresholdOnItemIdAndCount($itemId, $itemCount);
             }
