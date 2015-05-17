@@ -31,9 +31,10 @@ class Threshold
         $this->transaction = new Transaction($configuration);
     }
 
-    public function createThreshold()
+    public function createThresholdForSingleItemCombination()
     {
         $this->inputData->flushThresholdItems();
+        $this->inputData->flushTmeporaryThresholdItems(1);
 
         $transactionItems = array();
 
@@ -50,9 +51,12 @@ class Threshold
             }
         }
 
+        sort($transactionItems, SORT_NATURAL);
+
         foreach ($transactionItems as $itemId => $itemCount) {
             if ($itemCount >= $this->projectConfiguration->getMinimumThreshold()) {
-                $this->inputData->addThresholdOnItemIdAndCount($itemId, $itemCount);
+                $this->inputData->addThresholdOnItemsAndCount(array($itemId), $itemCount);
+                $this->inputData->addTemporaryThresholdOnItemsAndCount(array($itemId), $itemCount);
             }
         }
     }

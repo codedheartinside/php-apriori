@@ -72,7 +72,12 @@ class Input implements InputInterface
                 if ($this->projectConfiguration->isDebugInformationDisplayed()) {
                     throw new \Exception($e->getMessage());
                 }
+
+                continue;
             }
+
+            // Place the product ids in a natural sorting order to perform an easy compare later on
+            sort($record, SORT_NATURAL);
 
             $parsedData = $this->parser->parse($record);
             fwrite($dataSetFile, $parsedData . PHP_EOL);
@@ -95,7 +100,19 @@ class Input implements InputInterface
         return $this;
     }
 
-    public function addThresholdOnItemIdAndCount($itemId, $count)
+    public function flushTmeporaryThresholdItems($countNumber)
+    {
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+        $tempFile = $tempDirectory . "/threshold_{$countNumber}_temp.txt";
+
+        $file = fopen($tempFile, 'w+');
+
+        fclose($file);
+
+        return $this;
+    }
+
+    public function addThresholdOnItemsAndCount($itemIds, $count)
     {
         $tempDirectory = $this->projectConfiguration->getTempDirectory();
         $tempFile = $tempDirectory . '/threshold.txt';
@@ -104,7 +121,26 @@ class Input implements InputInterface
 
         fwrite(
             $file,
-            $this->parser->parse(array('itemId' => $itemId, 'count' => $count)) . PHP_EOL
+            $this->parser->parse(array('itemIds' => $itemIds, 'count' => $count)) . PHP_EOL
+        );
+
+        fclose($file);
+
+        return $this;
+    }
+
+    public function addTemporaryThresholdOnItemsAndCount($itemIds, $count)
+    {
+        $numberOfItems = sizeof($itemIds);
+
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+        $tempFile = $tempDirectory . "/threshold_{$numberOfItems}_temp.txt";
+
+        $file = fopen($tempFile, 'a');
+
+        fwrite(
+            $file,
+            $this->parser->parse(array('itemIds' => $itemIds, 'count' => $count)) . PHP_EOL
         );
 
         fclose($file);
