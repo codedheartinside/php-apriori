@@ -48,7 +48,7 @@ class Support
     {
         foreach ($this->outputData->getThresholdItem() as $item) {
             $support = $item->count / $this->totalNumberOfTransactions;
-            if (! $support >= $this->projectConfiguration->getMinimumSupport()) {
+            if ($support < $this->projectConfiguration->getMinimumSupport()) {
                 continue;
             }
 
