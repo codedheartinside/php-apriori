@@ -21,7 +21,6 @@ class Parse implements ParseInterface
 {
     public function parse($unparsedData)
     {
-        print_r($unparsedData);
         if (! is_array($unparsedData)) {
             throw new InvalidDataException('The data needs to be in an array format');
         }
