@@ -44,8 +44,6 @@ class Transaction implements TransactionInterface
 
     public function getTransactionItems($dataSetRecord)
     {
-        print_r($dataSetRecord);
-        print_r("test\n");
         $this->validation->validateDataSetRecord($dataSetRecord);
 
         $dataSetRecord = array_filter($dataSetRecord);
