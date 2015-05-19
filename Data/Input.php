@@ -76,7 +76,8 @@ class Input implements InputInterface
                 continue;
             }
 
-            // Place the product ids in a natural sorting order to perform an easy compare later on
+            // Place the product ids in a natural sorting order to
+            // perform an easy compare later on
             sort($record, SORT_NATURAL);
 
             $parsedData = $this->parser->parse($record);
