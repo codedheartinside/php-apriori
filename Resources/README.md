@@ -1,0 +1,1 @@
+The Resources directory is used for storig temporary application files
