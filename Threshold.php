@@ -39,11 +39,10 @@ class Threshold
         $transactionItems = array();
 
         foreach ($this->outputData->getDataSetRecord() as $record) {
-            foreach ($this->transaction->getTransactionItems($record) as $item) {
-                if (in_array($item, $transactionItems)) {
-                    continue;
-                }
+            // An item only needs one presents in an transaction
+            $record = array_unique($record);
 
+            foreach ($this->transaction->getTransactionItems($record) as $item) {
                 if (! isset($transactionItems[$item])) {
                     $transactionItems[$item] = 0;
                 }
@@ -51,7 +50,7 @@ class Threshold
             }
         }
 
-        sort($transactionItems, SORT_NATURAL);
+        ksort($transactionItems, SORT_NATURAL);
 
         foreach ($transactionItems as $itemId => $itemCount) {
             if ($itemCount >= $this->projectConfiguration->getMinimumThreshold()) {
