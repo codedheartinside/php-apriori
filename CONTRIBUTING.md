@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://bitbucket.org/wimulkeman/php-apriori).
+We accept contributions via Pull Requests on [Github](https://github.com/wimulkeman/php-apriori)[/Github].
 
 
 ## Pull Requests

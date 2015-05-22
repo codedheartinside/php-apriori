@@ -2,7 +2,7 @@
   "name": "PHP Apriori",
   "description": "Apriori data analysing algorithm written within PHP.",
   "keywords": [],
-  "homepage": "https://bitbucket.org/wimulkeman/php-apriori",
+  "homepage": "https://github.com/wimulkeman/php-apriori.git",
   "license": "MIT",
   "authors": [
     {
