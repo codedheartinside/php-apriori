@@ -46,7 +46,7 @@ class Support
 
     public function setSupportForSingleItems()
     {
-        foreach ($this->outputData->getThresholdItem() as $item) {
+        foreach ($this->outputData->getThresholdItems() as $item) {
             $support = $item->count / $this->totalNumberOfTransactions;
             if ($support < $this->projectConfiguration->getMinimumSupport()) {
                 continue;

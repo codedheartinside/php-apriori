@@ -49,7 +49,7 @@ class Output implements OutputInterface
         fclose($file);
     }
 
-    public function getThresholdItem()
+    public function getThresholdItems()
     {
         $tempDirectory = $this->projectConfiguration->getTempDirectory();
         $tempFile = $tempDirectory . '/threshold.txt';
@@ -62,6 +62,39 @@ class Output implements OutputInterface
             }
 
             yield $this->parser->unparse($line);
+        }
+
+        fclose($file);
+    }
+
+    public function getThresholdItemsOnItemSetSize($itemSetCount = 1)
+    {
+        if (empty($itemSetCount) || ! is_numeric($itemSetCount)) {
+            throw new \InvalidArgumentException('The provided value should be a numeric value');
+        }
+
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+        $thresholdFile = $tempDirectory . "/threshold_{$itemSetCount}_temp.txt";
+
+        $file = fopen($thresholdFile, 'r');
+
+        while ($line = fgets($file)) {
+            if (empty($line)) {
+                break;
+            }
+
+            $currentLine = $this->parser->unparse($line);
+
+            // See if there is a following line. If there isn't then there is no need to continue;
+            // First get the current position of the file pointer so it can be reset afterwards
+            $currentFilePointerPosition = ftell($file);
+            while ($nextLineRaw = fgets($file)) {
+                $nextLine = $this->parser->unparse($nextLineRaw);
+
+                yield array('currentRecord' => $currentLine, 'nextRecord' => $nextLine);
+            }
+
+            fseek($file, $currentFilePointerPosition);
         }
 
         fclose($file);

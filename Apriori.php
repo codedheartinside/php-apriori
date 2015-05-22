@@ -40,8 +40,7 @@ class Apriori
 
     public function run()
     {
-        $this->threshold->createThresholdForSingleItemCombination();
-//        $this->threshold->createThresholdForSingleMultipleItemCombinations();
+        $this->threshold->createThresholdForDataSet();
 //        $this->support->createSupport();
     }
 }

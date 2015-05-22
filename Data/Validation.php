@@ -46,4 +46,22 @@ class Validation
             throw new InvalidDataException('The provided data set record is not an sequential array');
         }
     }
+
+    public function doesFileExist($filepath = '')
+    {
+        if (! is_string($filepath)) {
+            throw new \InvalidArgumentException('The provided filepath param should be a string');
+        }
+
+        return is_file($filepath);
+    }
+
+    public function isFileEmpty($filepath = '')
+    {
+        if (! $this->doesFileExist($filepath)) {
+            return true;
+        }
+
+        return ! filesize($filepath);
+    }
 }

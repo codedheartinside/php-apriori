@@ -46,12 +46,7 @@ class Input implements InputInterface
 
     public function flushDataSet()
     {
-        $tempDirectory = $this->projectConfiguration->getTempDirectory();
-        $tempFile = $tempDirectory . '/data_set.txt';
-
-        $dataSetFile = fopen($tempFile, 'w+');
-
-        fclose($dataSetFile);
+        $this->flushFile("data_set.txt");
 
         return $this;
     }
@@ -76,6 +71,10 @@ class Input implements InputInterface
                 continue;
             }
 
+            // Only one set of unique items is required for the Apriori algorithm
+            $record = array_unique($record);
+            $record = array_filter($record);
+
             // Place the product ids in a natural sorting order to
             // perform an easy compare later on
             sort($record, SORT_NATURAL);
@@ -91,24 +90,14 @@ class Input implements InputInterface
 
     public function flushThresholdItems()
     {
-        $tempDirectory = $this->projectConfiguration->getTempDirectory();
-        $tempFile = $tempDirectory . '/threshold.txt';
-
-        $file = fopen($tempFile, 'w+');
-
-        fclose($file);
+        $this->flushFile("threshold.txt");
 
         return $this;
     }
 
     public function flushTmeporaryThresholdItems($countNumber)
     {
-        $tempDirectory = $this->projectConfiguration->getTempDirectory();
-        $tempFile = $tempDirectory . "/threshold_{$countNumber}_temp.txt";
-
-        $file = fopen($tempFile, 'w+');
-
-        fclose($file);
+        $this->flushFile("threshold_{$countNumber}_temp.txt");
 
         return $this;
     }
@@ -151,12 +140,7 @@ class Input implements InputInterface
 
     public function flushSupportItems()
     {
-        $tempDirectory = $this->projectConfiguration->getTempDirectory();
-        $tempFile = $tempDirectory . '/support.txt';
-
-        $file = fopen($tempFile, 'w+');
-
-        fclose($file);
+        $this->flushFile('support.txt');
 
         return $this;
     }
@@ -176,5 +160,21 @@ class Input implements InputInterface
         fclose($file);
 
         return $this;
+    }
+
+    public function flushThresholdItemCombinations()
+    {
+        $this->flushFile('threshold_combinations.txt');
+
+        return $this;
+    }
+
+    private function flushFile($filename = '')
+    {
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+
+        $file = fopen("{$tempDirectory}/{$filename}", 'w+');
+
+        fclose($file);
     }
 }
