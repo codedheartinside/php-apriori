@@ -41,6 +41,6 @@ class Apriori
     public function run()
     {
         $this->threshold->createThresholdForDataSet();
-//        $this->support->createSupport();
+        $this->support->createSupportOnThresholdFile();
     }
 }

@@ -145,8 +145,12 @@ class Input implements InputInterface
         return $this;
     }
 
-    public function addSupportOnItemIdAndSupport($itemId, $support)
+    public function addSupportOnItemIdAndSupport(array $itemIds = array(), $support)
     {
+        if (empty($itemIds) || ! is_array($itemIds)) {
+            throw new \InvalidArgumentException('The provided item ids must be in an aray format');
+        }
+
         $tempDirectory = $this->projectConfiguration->getTempDirectory();
         $tempFile = $tempDirectory . '/support.txt';
 
@@ -154,7 +158,7 @@ class Input implements InputInterface
 
         fwrite(
             $file,
-            $this->parser->parse(array('itemId' => $itemId, 'support' => $support)) . PHP_EOL
+            $this->parser->parse(array('itemIds' => $itemIds, 'support' => $support)) . PHP_EOL
         );
 
         fclose($file);

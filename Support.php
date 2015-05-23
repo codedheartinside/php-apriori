@@ -38,21 +38,30 @@ class Support
         $this->totalNumberOfTransactions = $this->transaction->getNumberOfTransactions();
     }
 
-    public function createSupport()
+    public function createSupportOnThresholdFile()
     {
         $this->inputData->flushSupportItems();
         $this->setSupportForSingleItems();
+
+        return $this;
     }
 
     public function setSupportForSingleItems()
     {
         foreach ($this->outputData->getThresholdItems() as $item) {
-            $support = $item->count / $this->totalNumberOfTransactions;
+            $support = $item['count'] / $this->totalNumberOfTransactions;
             if ($support < $this->projectConfiguration->getMinimumSupport()) {
                 continue;
             }
 
-            $this->inputData->addSupportOnItemIdAndSupport($item->itemId, $support);
+            $itemIds = $item['itemIds'];
+            if (! is_array($itemIds)) {
+                $itemIds = array($itemIds);
+            }
+
+            $this->inputData->addSupportOnItemIdAndSupport($itemIds, $support);
         }
+
+        return $this;
     }
 }
