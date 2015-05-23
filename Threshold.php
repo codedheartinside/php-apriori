@@ -73,8 +73,6 @@ class Threshold
             throw new \InvalidArgumentException('The provided param should be a numeric format');
         }
 
-        $this->inputData->flushTmeporaryThresholdItems($nrOfItems);
-
         $previousThresholdItemSetSize = $nrOfItems - 1;
 
         try {
@@ -92,6 +90,8 @@ class Threshold
 
             return;
         }
+
+        $this->inputData->flushTmeporaryThresholdItems($nrOfItems);
 
         foreach ($this->outputData->getThresholdItemsOnItemSetSize($previousThresholdItemSetSize) as $thresholdRecords) {
             $currentOldRecord = $thresholdRecords['currentRecord']['itemIds'];
@@ -124,6 +124,8 @@ class Threshold
             $this->inputData->addThresholdOnItemsAndCount($newItemSet, $nrOfTransactions);
             $this->inputData->addTemporaryThresholdOnItemsAndCount($newItemSet, $nrOfTransactions);
         }
+
+        $this->inputData->flushTmeporaryThresholdItems($previousThresholdItemSetSize);
 
         $this->createThresholdCombinationsForNrOfItems($nrOfItems + 1);
     }
