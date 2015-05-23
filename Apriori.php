@@ -26,10 +26,24 @@ use Bearwulf\DataMining\Apriori\Support;
  */
 class Apriori
 {
+    /**
+     * @var \Bearwulf\DataMining\Apriori\ConfigurationInterface
+     */
     private $projectConfiguration;
+
+    /**
+     * @var \Bearwulf\DataMining\Apriori\Threshold
+     */
     private $threshold;
+
+    /**
+     * @var \Bearwulf\DataMining\Apriori\Support
+     */
     private $support;
 
+    /**
+     * @param \Bearwulf\DataMining\Apriori\ConfigurationInterface $configuration
+     */
     public function __construct(ConfigurationInterface $configuration)
     {
         $this->projectConfiguration = $configuration;
@@ -38,6 +52,12 @@ class Apriori
         $this->support = new Support($configuration);
     }
 
+    /**
+     * This function is called after the configuration for the algorithm is set. The function will return the
+     * given data set and return the support and confidence of each transaction.
+     *
+     * @yield Each record of the provided data set with the corresponding support and confidence
+     */
     public function run()
     {
         $this->threshold->createThresholdForDataSet();

@@ -17,11 +17,27 @@ use Bearwulf\DataMining\Apriori\Data\Input;
 use Bearwulf\DataMining\Apriori\Data\Output;
 use Bearwulf\DataMining\Apriori\Data\Transaction;
 
+/**
+ * Class Support
+ * @package Bearwulf\DataMining\Apriori
+ */
 class Support
 {
+    /**
+     * @var Input
+     */
     private $inputData;
+    /**
+     * @var Output
+     */
     private $outputData;
+    /**
+     * @var Transaction
+     */
     private $transaction;
+    /**
+     * @var int
+     */
     private $totalNumberOfTransactions = 0;
 
     /**
@@ -38,6 +54,9 @@ class Support
         $this->totalNumberOfTransactions = $this->transaction->getNumberOfTransactions();
     }
 
+    /**
+     * @return $this
+     */
     public function createSupportOnThresholdFile()
     {
         $this->inputData->flushSupportItems();
@@ -46,6 +65,9 @@ class Support
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function setSupportForSingleItems()
     {
         foreach ($this->outputData->getThresholdItems() as $item) {
