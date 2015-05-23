@@ -107,7 +107,6 @@ class Threshold
             }
 
             $nrOfTransactions = 0;
-            print_r($newItemSet);
             foreach ($this->outputData->getDataSetRecord() as $record) {
                 if (sizeof(array_intersect($record, $newItemSet)) != $nrOfItems) {
                     continue;
@@ -115,7 +114,6 @@ class Threshold
 
                 $nrOfTransactions ++;
             }
-            print_r("{$nrOfTransactions}\n");
 
             if ($nrOfTransactions < $this->projectConfiguration->getMinimumThreshold()) {
                 continue;
