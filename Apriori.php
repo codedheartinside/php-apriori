@@ -58,13 +58,32 @@ class Apriori
     /**
      * This function is called after the configuration for the algorithm is set. The function will return the
      * given data set and return the support and confidence of each transaction.
-     *
-     * @yield Each record of the provided data set with the corresponding support and confidence
      */
     public function run()
     {
-//        $this->threshold->createThresholdForDataSet();
-//        $this->support->createSupportOnThresholdFile();
-        $this->confidence->createConfidenceOnThresholdFile();
+        $this->threshold->createThresholdForDataSet();
+        $this->support->createSupportOnThresholdFile();
+//        $this->confidence->createConfidenceOnThresholdFile();
+    }
+
+    /**
+     * This function is called to retrieve the records with the support percentage for the provided dataset after
+     * the algorithm has been run.
+     *
+     * @yield The record with the item set and the support
+     */
+    public function getSupportRecords()
+    {
+        return $this->support->getSupportRecords();
+    }
+
+    /**
+     * Tihs function is called to retrieve the records with the confidence percentage between items in item sets
+     *
+     * @yield The record with the item set and the underlying confidence
+     */
+    public function getConfidenceRecords()
+    {
+        return $this->confidence->getConfidenceRecords();
     }
 }

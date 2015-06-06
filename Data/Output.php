@@ -99,4 +99,40 @@ class Output implements OutputInterface
 
         fclose($file);
     }
+
+    public function getSupportRecords()
+    {
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+        $tempFile = $tempDirectory . '/support.txt';
+
+        $file = fopen($tempFile, 'r');
+
+        while ($line = fgets($file)) {
+            if (empty($line)) {
+                break;
+            }
+
+            yield $this->parser->unparse($line);
+        }
+
+        fclose($file);
+    }
+
+    public function getConfidenceRecords()
+    {
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+        $tempFile = $tempDirectory . '/confidence.txt';
+
+        $file = fopen($tempFile, 'r');
+
+        while ($line = fgets($file)) {
+            if (empty($line)) {
+                break;
+            }
+
+            yield $this->parser->unparse($line);
+        }
+
+        fclose($file);
+    }
 }

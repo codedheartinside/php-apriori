@@ -11,6 +11,10 @@ namespace Bearwulf\DataMining\Apriori;
 use Bearwulf\DataMining\Apriori\Data\Input;
 use Bearwulf\DataMining\Apriori\Data\Output;
 
+/**
+ * Class Confidence
+ * @package Bearwulf\DataMining\Apriori
+ */
 class Confidence
 {
     /**
@@ -42,7 +46,7 @@ class Confidence
      */
     public function createConfidenceOnThresholdFile()
     {
-        $this->inputData->flushSupportItems();
+        $this->inputData->flushConfidenceRecords();
 
         foreach ($this->outputData->getThresholdItems() as $item) {
             if (sizeof($item['itemIds']) < 2) {
@@ -99,5 +103,13 @@ class Confidence
         }
 
         return $this;
+    }
+
+    /**
+     * @return \Generator
+     */
+    public function getConfidenceRecords()
+    {
+        return $this->outputData->getConfidenceRecords();
     }
 }

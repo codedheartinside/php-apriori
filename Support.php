@@ -86,4 +86,9 @@ class Support
 
         return $this;
     }
+
+    public function getSupportRecords()
+    {
+        return $this->outputData->getSupportRecords();
+    }
 }

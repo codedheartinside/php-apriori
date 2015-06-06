@@ -173,7 +173,7 @@ class Input implements InputInterface
         return $this;
     }
 
-    public function flushConfidenceFile()
+    public function flushConfidenceRecords()
     {
         $this->flushFile('confidence.txt');
     }
