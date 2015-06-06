@@ -81,4 +81,45 @@ $aprioriClass->run();
 
 ## Retrieving the data
 
-Will be described soon!
+After running the algorithm, the records with the statistics for support and confidence become retrievable.
+
+To get the records with the support statistics:
+
+```php
+foreach ($apriori->getSupportRecords() as $record) {
+    print_r($record);
+    // Outputs:
+    // Array
+    // (
+    //     [itemIds] => Array
+    //     (
+    //         [0] => 1
+    //         [1] => 4
+    //         [2] => 6
+    //         [3] => 7
+    //     )
+    //
+    //     [support] => 0.060606060606061
+    // )
+}
+```
+
+To get the records with the confidence statistics
+
+```php
+foreach ($apriori->getConfidenceRecords() as $record) {
+    print_r($record);
+    // Outputs
+    // Array
+    // (
+    //     [if] => Array
+    //     (
+    //       [0] => 1
+    //       [1] => 7
+    //     )
+    //
+    //     [then] => 3
+    //     [confidence] => 1
+    // )
+}
+```
