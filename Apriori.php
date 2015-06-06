@@ -41,6 +41,8 @@ class Apriori
      */
     private $support;
 
+    private $confidence;
+
     /**
      * @param \Bearwulf\DataMining\Apriori\ConfigurationInterface $configuration
      */
@@ -50,6 +52,7 @@ class Apriori
 
         $this->threshold = new Threshold($configuration);
         $this->support = new Support($configuration);
+        $this->confidence = new Confidence($configuration);
     }
 
     /**
@@ -60,7 +63,8 @@ class Apriori
      */
     public function run()
     {
-        $this->threshold->createThresholdForDataSet();
-        $this->support->createSupportOnThresholdFile();
+//        $this->threshold->createThresholdForDataSet();
+//        $this->support->createSupportOnThresholdFile();
+        $this->confidence->createConfidenceOnThresholdFile();
     }
 }

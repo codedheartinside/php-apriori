@@ -173,6 +173,32 @@ class Input implements InputInterface
         return $this;
     }
 
+    public function flushConfidenceFile()
+    {
+        $this->flushFile('confidence.txt');
+    }
+
+    public function addConfidenceRecord(array $confidenceRecord = array())
+    {
+        if (empty($confidenceRecord) || ! is_array($confidenceRecord)) {
+            throw new \InvalidArgumentException('The provided record parameter needs to be an array');
+        }
+
+        $tempDirectory = $this->projectConfiguration->getTempDirectory();
+        $tempFile = $tempDirectory . '/confidence.txt';
+
+        $file = fopen($tempFile, 'a');
+
+        fwrite(
+            $file,
+            $this->parser->parse($confidenceRecord) . PHP_EOL
+        );
+
+        fclose($file);
+
+        return $this;
+    }
+
     private function flushFile($filename = '')
     {
         $tempDirectory = $this->projectConfiguration->getTempDirectory();
