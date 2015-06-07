@@ -11,7 +11,26 @@ This package is meant for implementing the Apriori algorithm as a microservice.
 curl -s http://getcomposer.org/installer | php
 ```
 
-## Downloading the package
+## Option 1: Download the files from github
+
+Retrieve the files:
+
+1. Create the directory vendor/Bearwulf/DataMining/Apriori
+2. Download the files from GitHub, or clone the project into the folder
+
+Add the package to the composer file
+
+```
+{
+    "autoload": {
+        "psr-4": {
+            "Bearwulf\\DataMining\\Apriori\\": "vendor/Bearwulf/DataMining/Apriori"
+        }
+    }
+}
+```
+
+## Option 2: Downloading the package (Not yet available)
 
 Add the package to your composer.json file
 
@@ -22,6 +41,8 @@ Add the package to your composer.json file
     }
 }
 ```
+
+## Load the files and create the autoload file
 
 Download the files
 
