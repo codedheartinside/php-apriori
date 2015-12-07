@@ -64,6 +64,13 @@ $aprioriConfiguration->setDisplayDebugInformation()
 After that, all is set to run the algorithm on a data set. The data set can be added through the addDataSet function.
 
 ```php
+$dataSet = array(
+    array(1, 3, 4),
+    array(2, 4, 6),
+    array(1, 2),
+    array(5),
+);
+
 $dataInput = new CodedHeartInside\DataMining\Apriori\Data\Input($aprioriConfiguration);
 $dataInput->flushDataSet()
     ->addDataSet($dataSet)
