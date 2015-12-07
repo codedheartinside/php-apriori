@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Bearwulf package.
+ * This file is part of the CodedHeartInside package.
  *
  * (c) Wim Ulkeman
  *
@@ -11,13 +11,13 @@
  * distrubuted with this source code
  */
 
-namespace Bearwulf\DataMining\Apriori;
+namespace CodedHeartInside\DataMining\Apriori;
 
-use Bearwulf\DataMining\Apriori\ConfigurationInterface;
+use CodedHeartInside\DataMining\Apriori\ConfigurationInterface;
 
 /**
  * Class Configuration
- * @package Bearwulf\DataMining\Apriori
+ * @package CodedHeartInside\DataMining\Apriori
  */
 class Configuration implements ConfigurationInterface
 {

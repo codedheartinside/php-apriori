@@ -6,7 +6,7 @@
  * Time: 16:08
  */
 
-namespace Bearwulf\DataMining\Apriori\Data;
+namespace CodedHeartInside\DataMining\Apriori\Data;
 
 
 interface TransactionInterface

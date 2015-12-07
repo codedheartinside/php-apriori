@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Bearwulf package.
+ * This file is part of the CodedHeartInside package.
  *
  * (c) Wim Ulkeman
  *
@@ -11,18 +11,18 @@
  * distrubuted with this source code
  */
 
-namespace Bearwulf\DataMining\Apriori\Data;
+namespace CodedHeartInside\DataMining\Apriori\Data;
 
-use Bearwulf\DataMining\Apriori\ConfigurationInterface;
-use Bearwulf\DataMining\Apriori\Data\InputInterface;
-use Bearwulf\DataMining\Apriori\Data\Validation;
-use Bearwulf\DataMining\Apriori\Data\Parse;
-use Bearwulf\DataMining\Apriori\Exception\InvalidDataException;
+use CodedHeartInside\DataMining\Apriori\ConfigurationInterface;
+use CodedHeartInside\DataMining\Apriori\Data\InputInterface;
+use CodedHeartInside\DataMining\Apriori\Data\Validation;
+use CodedHeartInside\DataMining\Apriori\Data\Parse;
+use CodedHeartInside\DataMining\Apriori\Exception\InvalidDataException;
 
 
 /**
  * Class Input
- * @package Bearwulf\DataMining\Apriori\Data
+ * @package CodedHeartInside\DataMining\Apriori\Data
  */
 class Input implements InputInterface
 {

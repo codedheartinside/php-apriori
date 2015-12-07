@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Bearwulf package.
+ * This file is part of the CodedHeartInside package.
  *
  * (c) Wim Ulkeman
  *
@@ -11,9 +11,9 @@
  * distrubuted with this source code
  */
 
-namespace Bearwulf\DataMining\Apriori\Data;
+namespace CodedHeartInside\DataMining\Apriori\Data;
 
-use Bearwulf\DataMining\Apriori\Exception\InvalidDataException;
+use CodedHeartInside\DataMining\Apriori\Exception\InvalidDataException;
 
 class Validation
 {
