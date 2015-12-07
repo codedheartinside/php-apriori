@@ -50,7 +50,7 @@ Add the package to the composer file
 {
     "autoload": {
         "psr-4": {
-            "Bearwulf\\DataMining\\Apriori\\": "vendor/Bearwulf/DataMining/Apriori"
+            "CodedHeartInside\\DataMining\\Apriori\\": "vendor/CodedHeartInside/DataMining/Apriori"
         }
     }
 }
