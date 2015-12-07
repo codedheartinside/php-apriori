@@ -40,7 +40,7 @@ require 'vendor/autoload.php';
 To set up the running environment for the package, run the installer
 
 ```php
-$installer = new \Bearwulf\DataMining\Apriori\Installer();
+$installer = new \CodedHeartInside\DataMining\Apriori\Installer();
 $installer->createRunningEnvironment();
 ```
 
@@ -51,7 +51,7 @@ $installer->createRunningEnvironment();
 You first need to create a configuration with the rules for the algorithm
 
 ```php
-$aprioriConfiguration = new \Bearwulf\DataMining\Apriori\Configuration();
+$aprioriConfiguration = new \CodedHeartInside\DataMining\Apriori\Configuration();
 
 // Configuring the boundries is optional
 $aprioriConfiguration->setDisplayDebugInformation(true)
@@ -64,7 +64,7 @@ $aprioriConfiguration->setDisplayDebugInformation(true)
 After that, all is set to run the algorithm on a data set. The data set can be added through the addDataSet function.
 
 ```php
-$dataInput = new Bearwulf\DataMining\Apriori\Data\Input($aprioriConfiguration);
+$dataInput = new CodedHeartInside\DataMining\Apriori\Data\Input($aprioriConfiguration);
 $dataInput->flushDataSet()
     ->addDataSet($dataSet)
     ->addDataSet($dataSet); // In this case, the data set is added twice to create more testing data
@@ -75,7 +75,7 @@ $dataInput->flushDataSet()
 To run the the algorithm on the data set, provide the Apriori class with the configuration and call the run function.
 
 ```php
-$aprioriClass = new Bearwulf\DataMining\Apriori\Apriori($aprioriConfiguration);
+$aprioriClass = new CodedHeartInside\DataMining\Apriori\Apriori($aprioriConfiguration);
 $aprioriClass->run();
 ```
 
