@@ -13,7 +13,7 @@ curl -s http://getcomposer.org/installer | php
 
 ## Option 1: Clone the project from github
 
-Add the repository to the composer file
+Add the repository to the composer file. Replace 1.0.0 with the latest version number.
 
 ```
 {
@@ -22,7 +22,7 @@ Add the repository to the composer file
             "type":"package",
             "package": {
                 "name": "codedheartinside/php-apriori",
-                "version":"dev-1.0.0",
+                "version":"dev-1.*",
                 "source": {
                     "url": "https://github.com/codedheartinside/php-apriori.git",
                     "type": "git",
@@ -32,7 +32,7 @@ Add the repository to the composer file
         }
     ],
     "require": {
-        "codedheartinside/php-apriori": "dev-1.0.0"
+        "codedheartinside/php-apriori": "dev-1.*"
     }
 }
 ```
