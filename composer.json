@@ -18,12 +18,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Bearwulf\\DataMining\\Apriori\\": ""
+      "CodedHeartInside\\DataMining\\Apriori\\": ""
     }
   },
   "autoload-dev": {
     "psr-4": {  
-      "Bearwulf\\DataMining\\Apriori\\Tests\\": "Tests"
+      "CodedHeartInside\\DataMining\\Apriori\\Tests\\": "Tests"
     }
   },
   "extra": {

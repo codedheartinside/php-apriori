@@ -41,7 +41,7 @@ Add the repository to the composer file. Replace 1.0.0 with the latest version n
 
 Retrieve the files:
 
-1. Create the directory vendor/Bearwulf/DataMining/Apriori
+1. Create the directory vendor/codedheartinside/DataMining/Apriori
 2. Download the files from GitHub, or clone the project into the folder
 
 Add the package to the composer file
@@ -50,7 +50,7 @@ Add the package to the composer file
 {
     "autoload": {
         "psr-4": {
-            "Bearwulf\\DataMining\\Apriori\\": "vendor/Bearwulf/DataMining/Apriori"
+            "CodedHeartInside\\DataMining\\Apriori\\": "vendor/CodedHeartInside/DataMining/Apriori"
         }
     }
 }
