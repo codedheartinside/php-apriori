@@ -21,7 +21,7 @@ Add the repository to the composer file. Replace 1.0.0 with the latest version n
         {
             "type":"package",
             "package": {
-                "name": "CodedHeartInside/php-apriori",
+                "name": "CodedHeartInside/DataMining/php-apriori",
                 "version":"dev-1.*",
                 "source": {
                     "url": "https://github.com/codedheartinside/php-apriori.git",
@@ -32,7 +32,7 @@ Add the repository to the composer file. Replace 1.0.0 with the latest version n
         }
     ],
     "require": {
-        "CodedHeartInside/php-apriori": "dev-1.*"
+        "CodedHeartInside/DataMining/php-apriori": "dev-1.*"
     }
 }
 ```
