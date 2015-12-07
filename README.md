@@ -54,7 +54,7 @@ You first need to create a configuration with the rules for the algorithm
 $aprioriConfiguration = new \CodedHeartInside\DataMining\Apriori\Configuration();
 
 // Configuring the boundries is optional
-$aprioriConfiguration->setDisplayDebugInformation(true)
+$aprioriConfiguration->setDisplayDebugInformation()
     ->setMinimumThreshold(2) // Default is 2
     ->setMinimumSupport(0.2) // Default is 0.1
     ->setMinimumConfidence(5); // Default is 0.2
