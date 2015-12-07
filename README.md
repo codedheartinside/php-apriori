@@ -11,53 +11,6 @@ This package is meant for implementing the Apriori algorithm as a microservice.
 curl -s http://getcomposer.org/installer | php
 ```
 
-## Option 1: Clone the project from github
-
-Add the repository to the composer file. Replace 1.0.0 with the latest version number.
-
-```
-{
-    "repositories": [
-        {
-            "type":"package",
-            "package": {
-                "name": "CodedHeartInside/DataMining/php-apriori",
-                "version":"dev-1.*",
-                "source": {
-                    "url": "https://github.com/codedheartinside/php-apriori.git",
-                    "type": "git",
-                    "reference":"dev-1.0.0"
-                }
-            }
-        }
-    ],
-    "require": {
-        "CodedHeartInside/DataMining/php-apriori": "dev-1.*"
-    }
-}
-```
-
-## Option 2: Download the files from github
-
-Retrieve the files:
-
-1. Create the directory vendor/CodedHeartInside/DataMining/Apriori
-2. Download the files from GitHub, or clone the project into the folder
-
-Add the package to the composer file
-
-```
-{
-    "autoload": {
-        "psr-4": {
-            "CodedHeartInside\\DataMining\\Apriori\\": "vendor/CodedHeartInside/DataMining/Apriori"
-        }
-    }
-}
-```
-
-## Option 3: Downloading the package (Not yet available)
-
 Add the package to your composer.json file
 
 ```
