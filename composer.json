@@ -1,8 +1,8 @@
 {
-  "name": "bearwulf/apriori",
+  "name": "codedheartinside/apriori",
   "description": "Apriori data analysing algorithm written within PHP.",
   "keywords": ["apriori", "data mining"],
-  "homepage": "https://github.com/wimulkeman/php-apriori.git",
+  "homepage": "https://github.com/codedheartinside/php-apriori.git",
   "license": "MIT",
   "authors": [
     {
