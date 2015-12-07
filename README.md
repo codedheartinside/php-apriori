@@ -13,7 +13,7 @@ curl -s http://getcomposer.org/installer | php
 
 ## Option 1: Clone the project from github
 
-Add the repository to the composer file
+Add the repository to the composer file. Replace 1.0.0 with the latest version number.
 
 ```
 {
