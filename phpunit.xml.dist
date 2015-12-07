@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Bearwulf Data Mining - Apriori: Test Suite">
+        <testsuite name="CodedHeartInside Data Mining - Apriori: Test Suite">
             <directory>./Tests</directory>
         </testsuite>
     </testsuites>

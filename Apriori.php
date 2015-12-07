@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Bearwulf package.
+ * This file is part of the CodedHeartInside package.
  *
  * (c) Wim Ulkeman
  *
@@ -11,40 +11,40 @@
  * distrubuted with this source code
  */
 
-namespace Bearwulf\DataMining\Apriori;
+namespace CodedHeartInside\DataMining\Apriori;
 
-use Bearwulf\DataMining\Apriori\ConfigurationInterface;
-use Bearwulf\DataMining\Apriori\Threshold;
-use Bearwulf\DataMining\Apriori\Support;
+use CodedHeartInside\DataMining\Apriori\ConfigurationInterface;
+use CodedHeartInside\DataMining\Apriori\Threshold;
+use CodedHeartInside\DataMining\Apriori\Support;
 
 
 /**
  * Class Apriori
- * @package Bearwulf\DataMining\Apriori
+ * @package CodedHeartInside\DataMining\Apriori
  *
  * @api
  */
 class Apriori
 {
     /**
-     * @var \Bearwulf\DataMining\Apriori\ConfigurationInterface
+     * @var \CodedHeartInside\DataMining\Apriori\ConfigurationInterface
      */
     private $projectConfiguration;
 
     /**
-     * @var \Bearwulf\DataMining\Apriori\Threshold
+     * @var \CodedHeartInside\DataMining\Apriori\Threshold
      */
     private $threshold;
 
     /**
-     * @var \Bearwulf\DataMining\Apriori\Support
+     * @var \CodedHeartInside\DataMining\Apriori\Support
      */
     private $support;
 
     private $confidence;
 
     /**
-     * @param \Bearwulf\DataMining\Apriori\ConfigurationInterface $configuration
+     * @param \CodedHeartInside\DataMining\Apriori\ConfigurationInterface $configuration
      */
     public function __construct(ConfigurationInterface $configuration)
     {

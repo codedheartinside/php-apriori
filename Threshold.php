@@ -6,14 +6,14 @@
  * Time: 16:17
  */
 
-namespace Bearwulf\DataMining\Apriori;
+namespace CodedHeartInside\DataMining\Apriori;
 
 
-use Bearwulf\DataMining\Apriori\Data\Input;
-use Bearwulf\DataMining\Apriori\Data\Output;
-use Bearwulf\DataMining\Apriori\Data\Transaction;
-use Bearwulf\DataMining\Apriori\Data\Validation;
-use Bearwulf\DataMining\Apriori\Exception\InvalidDataException;
+use CodedHeartInside\DataMining\Apriori\Data\Input;
+use CodedHeartInside\DataMining\Apriori\Data\Output;
+use CodedHeartInside\DataMining\Apriori\Data\Transaction;
+use CodedHeartInside\DataMining\Apriori\Data\Validation;
+use CodedHeartInside\DataMining\Apriori\Exception\InvalidDataException;
 
 class Threshold
 {

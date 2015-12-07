@@ -6,14 +6,14 @@
  * Time: 23:20
  */
 
-namespace Bearwulf\DataMining\Apriori;
+namespace CodedHeartInside\DataMining\Apriori;
 
-use Bearwulf\DataMining\Apriori\Data\Input;
-use Bearwulf\DataMining\Apriori\Data\Output;
+use CodedHeartInside\DataMining\Apriori\Data\Input;
+use CodedHeartInside\DataMining\Apriori\Data\Output;
 
 /**
  * Class Confidence
- * @package Bearwulf\DataMining\Apriori
+ * @package CodedHeartInside\DataMining\Apriori
  */
 class Confidence
 {

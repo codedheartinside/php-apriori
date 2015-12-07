@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Bearwulf package.
+ * This file is part of the CodedHeartInside package.
  *
  * (c) Wim Ulkeman
  *
@@ -11,7 +11,7 @@
  * distrubuted with this source code
  */
 
-namespace Bearwulf\DataMining\Apriori\Data;
+namespace CodedHeartInside\DataMining\Apriori\Data;
 
 
 interface ValidationInterface

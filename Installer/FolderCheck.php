@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Bearwulf package.
+ * This file is part of the CodedHeartInside package.
  *
  * (c) Wim Ulkeman
  *
@@ -11,11 +11,11 @@
  * distrubuted with this source code
  */
 
-namespace Bearwulf\DataMining\Apriori\Installer;
+namespace CodedHeartInside\DataMining\Apriori\Installer;
 
 /**
  * Class FolderCheck
- * @package Bearwulf\DataMining\Apriori\Installer
+ * @package CodedHeartInside\DataMining\Apriori\Installer
  */
 class FolderCheck
 {

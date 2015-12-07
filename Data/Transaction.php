@@ -6,11 +6,11 @@
  * Time: 16:04
  */
 
-namespace Bearwulf\DataMining\Apriori\Data;
+namespace CodedHeartInside\DataMining\Apriori\Data;
 
 
-use Bearwulf\DataMining\Apriori\ConfigurationInterface;
-use Bearwulf\DataMining\Apriori\Data\TransactionInterface;
+use CodedHeartInside\DataMining\Apriori\ConfigurationInterface;
+use CodedHeartInside\DataMining\Apriori\Data\TransactionInterface;
 
 class Transaction implements TransactionInterface
 {
