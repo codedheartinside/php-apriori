@@ -38,7 +38,7 @@ class Configuration implements ConfigurationInterface
      */
     private $projectConfigurationFilePath = '';
     private $displayDebugInformation = false;
-    private $minimumTreshhold = 2;
+    private $minimumThreshold= 2;
     private $minimumSupport = 0.1;
     private $minimumConfidence = 0.2;
 
@@ -96,14 +96,14 @@ class Configuration implements ConfigurationInterface
 
     public function setMinimumThreshold($minimumThreshold)
     {
-        $this->minimumTreshhold = $minimumThreshold;
+        $this->minimumThreshold = $minimumThreshold;
 
         return $this;
     }
 
     public function getMinimumThreshold()
     {
-        return $this->minimumTreshhold;
+        return $this->minimumThreshold;
     }
 
 
