@@ -92,6 +92,8 @@ $aprioriClass->run();
 
 After running the algorithm, the records with the statistics for support and confidence become retrievable.
 
+__Support is the time a item combination occurs in all of the provided item sets.__
+
 To get the records with the support statistics:
 
 ```php
@@ -112,6 +114,8 @@ foreach ($apriori->getSupportRecords() as $record) {
     // )
 }
 ```
+
+__Confidence is the times a article occurs in combination with the other items__
 
 To get the records with the confidence statistics
 
