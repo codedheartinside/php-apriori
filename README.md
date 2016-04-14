@@ -57,7 +57,8 @@ $aprioriConfiguration = new \CodedHeartInside\DataMining\Apriori\Configuration()
 $aprioriConfiguration->setDisplayDebugInformation()
     ->setMinimumThreshold(2) // Default is 2
     ->setMinimumSupport(0.2) // Default is 0.1
-    ->setMinimumConfidence(5); // Default is 0.2
+    ->setMinimumConfidence(5) // Default is 0.2
+;
 ```
 
 ## Defining the data set
@@ -74,7 +75,8 @@ $dataSet = array(
 $dataInput = new CodedHeartInside\DataMining\Apriori\Data\Input($aprioriConfiguration);
 $dataInput->flushDataSet()
     ->addDataSet($dataSet)
-    ->addDataSet($dataSet); // In this case, the data set is added twice to create more testing data
+    ->addDataSet($dataSet) // In this case, the data set is added twice to create more testing data
+;
 ```
 
 ## Running the algorithm
