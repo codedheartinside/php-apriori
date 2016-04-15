@@ -55,9 +55,10 @@ $aprioriConfiguration = new \CodedHeartInside\DataMining\Apriori\Configuration()
 
 // Configuring the boundries is optional
 $aprioriConfiguration->setDisplayDebugInformation()
-    ->setMinimumThreshold(2) // Default is 2
+$aprioriConfiguration->setMinimumThreshold(2) // Default is 2
     ->setMinimumSupport(0.2) // Default is 0.1
-    ->setMinimumConfidence(5); // Default is 0.2
+    ->setMinimumConfidence(5) // Default is 0.2
+;
 ```
 
 ## Defining the data set
@@ -74,7 +75,8 @@ $dataSet = array(
 $dataInput = new CodedHeartInside\DataMining\Apriori\Data\Input($aprioriConfiguration);
 $dataInput->flushDataSet()
     ->addDataSet($dataSet)
-    ->addDataSet($dataSet); // In this case, the data set is added twice to create more testing data
+    ->addDataSet($dataSet) // In this case, the data set is added twice to create more testing data
+;
 ```
 
 ## Running the algorithm
@@ -90,10 +92,12 @@ $aprioriClass->run();
 
 After running the algorithm, the records with the statistics for support and confidence become retrievable.
 
+__Support is the time a item combination occurs in all of the provided item sets.__
+
 To get the records with the support statistics:
 
 ```php
-foreach ($apriori->getSupportRecords() as $record) {
+foreach ($aprioriClass->getSupportRecords() as $record) {
     print_r($record);
     // Outputs:
     // Array
@@ -111,10 +115,12 @@ foreach ($apriori->getSupportRecords() as $record) {
 }
 ```
 
+__Confidence is the times a article occurs in combination with the other items__
+
 To get the records with the confidence statistics
 
 ```php
-foreach ($apriori->getConfidenceRecords() as $record) {
+foreach ($aprioriClass->getConfidenceRecords() as $record) {
     print_r($record);
     // Outputs
     // Array
