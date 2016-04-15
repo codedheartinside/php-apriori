@@ -71,7 +71,7 @@ class Installer implements InstallerInterface
     public function setRootDirectory($path = '')
     {
         if (! is_dir($path)) {
-            throw new MissingDirectoryException('Het opgegeven pad bestaat niet');
+            throw new MissingDirectoryException('The provided path is non-existing');
         }
 
         $this->rootDirectory = $path;
@@ -87,7 +87,7 @@ class Installer implements InstallerInterface
     public function setResourceDirectory($path = '')
     {
         if (! is_dir($path)) {
-            throw new MissingDirectoryException('Het opgegeven pad bestaat niet');
+            throw new MissingDirectoryException('The provided path is non-existing');
         }
 
         $this->resourceDirectory = $path;
@@ -103,7 +103,7 @@ class Installer implements InstallerInterface
     public function setTempDirectory($path = '')
     {
         if (! is_dir($path)) {
-            throw new MissingDirectoryException('Het opgegeven pad bestaat niet');
+            throw new MissingDirectoryException('The provided path is non-existing');
         }
 
         $this->tempDirectory = $path;
@@ -119,7 +119,7 @@ class Installer implements InstallerInterface
     public function setProjectConfigurationFilePath($path = '')
     {
         if (! is_dir($path)) {
-            throw new MissingDirectoryException('Het opgegeven pad bestaat niet');
+            throw new MissingDirectoryException('The provided path is non-existing');
         }
 
         $this->projectConfigurationFilePath = $path;
