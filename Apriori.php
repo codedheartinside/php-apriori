@@ -63,7 +63,7 @@ class Apriori
     {
         $this->threshold->createThresholdForDataSet();
         $this->support->createSupportOnThresholdFile();
-//        $this->confidence->createConfidenceOnThresholdFile();
+        $this->confidence->createConfidenceOnThresholdFile();
     }
 
     /**
