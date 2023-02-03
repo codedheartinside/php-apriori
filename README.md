@@ -72,7 +72,7 @@ $dataSet = array(
     array(5),
 );
 
-$dataInput = new CodedHeartInside\DataMining\Apriori\Data\Input($aprioriConfiguration);
+$dataInput = new \CodedHeartInside\DataMining\Apriori\Data\Input($aprioriConfiguration);
 $dataInput->flushDataSet()
     ->addDataSet($dataSet)
     ->addDataSet($dataSet) // In this case, the data set is added twice to create more testing data
@@ -84,7 +84,7 @@ $dataInput->flushDataSet()
 To run the the algorithm on the data set, provide the Apriori class with the configuration and call the run function.
 
 ```php
-$aprioriClass = new CodedHeartInside\DataMining\Apriori\Apriori($aprioriConfiguration);
+$aprioriClass = new \CodedHeartInside\DataMining\Apriori\Apriori($aprioriConfiguration);
 $aprioriClass->run();
 ```
 
