@@ -2,13 +2,13 @@ name: Run Unit Tests
 run-name: Check if the code can run on all PHP versions
 on: [push]
 jobs:
-  check-php5-versions:
+  check-php-versions-for-phpunit-5:
     runs-on: ${{ matrix.operating-system }}
 
     strategy:
       matrix:
         operating-system: [ubuntu-latest, windows-latest]
-        php-versions: ['5.5', '5.6']
+        php-versions: ['5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', ]
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
 
@@ -34,17 +34,21 @@ jobs:
 
       - name: Run Composer
         uses: php-actions/composer@v6
+        with:
+          php-version: ${{ matrix.php-versions }}
 
       - name: Run Unit Tests
         uses: php-actions/phpunit@v3
+        with:
+          php-version: ${{ matrix.php-versions }}
 
-  check-php-versions:
+  check-php-versions-for-php-unit-10:
     runs-on: ${{ matrix.operating-system }}
 
     strategy:
       matrix:
         operating-system: [ubuntu-latest, windows-latest]
-        php-versions: ['7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2']
+        php-versions: ['8.1', '8.2']
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
 
@@ -69,10 +73,14 @@ jobs:
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Run Composer
-        uses: php-actions/composer@v6
+        uses: composer update
+        with:
+          php-version: ${{ matrix.php-versions }}
 
       - name: Update configuration
         run: php vendor/bin/phpunit --migrate-configuration
 
       - name: Run Unit Tests
         uses: php-actions/phpunit@v3
+        with:
+          php-version: ${{ matrix.php-versions }}
