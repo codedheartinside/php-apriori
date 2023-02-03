@@ -2,24 +2,77 @@ name: Run Unit Tests
 run-name: Check if the code can run on all PHP versions
 on: [push]
 jobs:
-  check-php-versions:
+  check-php5-versions:
     runs-on: ${{ matrix.operating-system }}
 
     strategy:
       matrix:
         operating-system: [ubuntu-latest, windows-latest]
-        php-versions: ['5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2']
+        php-versions: ['5.5', '5.6']
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
       - name: Run Composer
         uses: php-actions/composer@v6
+
+      - name: Run Unit Tests
+        uses: php-actions/phpunit@v3
+
+  check-php-versions:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest, windows-latest]
+        php-versions: ['7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2']
+
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Run Composer
+        uses: php-actions/composer@v6
+
+      - name: Update configuration
+        run: php vendor/bin/phpunit --migrate-configuration
+
       - name: Run Unit Tests
         uses: php-actions/phpunit@v3
