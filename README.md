@@ -1,6 +1,8 @@
 PHP Apriori
 ===========
 
+[![Run Unit Tests](https://github.com/codedheartinside/php-apriori/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/codedheartinside/php-apriori/actions/workflows/unit_tests.yml)
+
 This package is meant for implementing the Apriori algorithm as a microservice.
 
 # Installation:
