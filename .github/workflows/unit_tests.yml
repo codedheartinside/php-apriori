@@ -85,33 +85,33 @@ jobs:
 #          version: "5"
 #          php_version: ${{ matrix.php-versions }}
 #
-#  php-8-composer-latest-phpunit-latest:
-#    runs-on: ubuntu-latest
-#
-#    strategy:
-#      matrix:
-#        php-versions: [ '8.1', '8.2' ]
-#
-#    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }} with latest composer and latest PHPUnit
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v3
-#
-#      - name: Install PHP
-#        uses: shivammathur/setup-php@v2
-#        with:
-#          php-version: ${{ matrix.php-versions }}
-#
-#      - name: Run Composer
-#        uses: php-actions/composer@v6
-#        with:
-#          php_version: ${{ matrix.php-versions }}
-#
-#      - name: Update configuration
-#        run: php vendor/bin/phpunit --migrate-configuration
-#
-#      - name: Run Unit Tests
-#        uses: php-actions/phpunit@v9
-#        with:
-#          php_version: ${{ matrix.php-versions }}
+  php-8-composer-latest-phpunit-latest:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-versions: [ '8.1', '8.2' ]
+
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }} with latest composer and latest PHPUnit
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+
+      - name: Run Composer
+        uses: php-actions/composer@v6
+        with:
+          php_version: ${{ matrix.php-versions }}
+
+      - name: Update configuration
+        run: php vendor/bin/phpunit --migrate-configuration
+
+      - name: Run Unit Tests
+        uses: php-actions/phpunit@v9
+        with:
+          php_version: ${{ matrix.php-versions }}
