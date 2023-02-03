@@ -22,8 +22,8 @@
     }
   },
   "autoload-dev": {
-    "psr-4": {  
-      "CodedHeartInside\\DataMining\\Apriori\\Tests\\": "Tests"
+    "psr-4": {
+      "Tests\\": "Tests"
     }
   },
   "extra": {
