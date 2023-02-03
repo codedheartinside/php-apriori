@@ -27,10 +27,8 @@ jobs:
           php_version: ${{ matrix.php-versions }}
 
       - name: Run Unit Tests
-        uses: php-actions/phpunit@v1
-        with:
-          version: "4"
-          php_version: ${{ matrix.php-versions }}
+        uses: php-actions/phpunit@v2
+        run: php vendor/bin/phpunit
 
 #  php-5-7-composer-2-phpunit-5:
 #    runs-on: ubuntu-latest
