@@ -7,7 +7,7 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: [ '5.5' ]
+        php-versions: [ '5.5', '5.6' ]
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }} with composer 1 and PHPUnit 4
 
@@ -26,36 +26,36 @@ jobs:
       - name: Run Unit Tests
         run: php vendor/bin/phpunit
 
-#  php-5-7-composer-2-phpunit-5:
-#    runs-on: ubuntu-latest
-#
-#    strategy:
-#      matrix:
-#        php-versions: [ '5.6', '7.0', '7.1' ]
-#
-#    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }} with composer 2.2 and PHPUnit 5
-#
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v3
-#
-#      - name: Install PHP
-#        uses: shivammathur/setup-php@v2
-#        with:
-#          php-version: ${{ matrix.php-versions }}
-#
-#      - name: Run Composer
-#        uses: php-actions/composer@v6
-#        with:
-#          version: "2.2"
-#          php_version: ${{ matrix.php-versions }}
-#
-#      - name: Run Unit Tests
-#        uses: php-actions/phpunit@v3
-#        with:
-#          version: "5"
-#          php_version: ${{ matrix.php-versions }}
-#
+  php-5-7-composer-2-phpunit-5:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-versions: [ '7.0', '7.1' ]
+
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }} with composer 2.2 and PHPUnit 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+
+      - name: Run Composer
+        uses: php-actions/composer@v6
+        with:
+          version: "2.2"
+          php_version: ${{ matrix.php-versions }}
+
+      - name: Run Unit Tests
+        uses: php-actions/phpunit@v3
+        with:
+          version: "5"
+          php_version: ${{ matrix.php-versions }}
+
 #  php-7-composer-latest-phpunit-5:
 #    runs-on: ubuntu-latest
 #
