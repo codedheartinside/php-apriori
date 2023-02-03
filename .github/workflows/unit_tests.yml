@@ -35,12 +35,12 @@ jobs:
       - name: Run Composer
         uses: php-actions/composer@v6
         with:
-          php-version: ${{ matrix.php-versions }}
+          php_version: ${{ matrix.php-versions }}
 
       - name: Run Unit Tests
         uses: php-actions/phpunit@v3
         with:
-          php-version: ${{ matrix.php-versions }}
+          php_version: ${{ matrix.php-versions }}
 
   check-php-versions-for-php-unit-10:
     runs-on: ${{ matrix.operating-system }}
@@ -75,7 +75,7 @@ jobs:
       - name: Run Composer
         uses: php-actions/composer@v6
         with:
-          php-version: ${{ matrix.php-versions }}
+          php_version: ${{ matrix.php-versions }}
 
       - name: Update configuration
         run: php vendor/bin/phpunit --migrate-configuration
@@ -83,4 +83,4 @@ jobs:
       - name: Run Unit Tests
         uses: php-actions/phpunit@v3
         with:
-          php-version: ${{ matrix.php-versions }}
+          php_version: ${{ matrix.php-versions }}
