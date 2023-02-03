@@ -2,13 +2,13 @@ name: Run Unit Tests
 run-name: Check if the code can run on all PHP versions
 on: [push]
 jobs:
-  check-php-versions-for-phpunit-5-and-older-composer:
+  php-5-composer-2-phpunit-4:
     runs-on: ${{ matrix.operating-system }}
 
     strategy:
       matrix:
         operating-system: [ ubuntu-latest, windows-latest ]
-        php-versions: [ '5.5', '5.6', '7.0', '7.1' ]
+        php-versions: [ '5.5' ]
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
 
@@ -30,9 +30,41 @@ jobs:
       - name: Run Unit Tests
         uses: php-actions/phpunit@v3
         with:
+          version: 4
           php_version: ${{ matrix.php-versions }}
 
-  check-php-versions-for-phpunit-5-and-newer-composer:
+  php-5-7-composer-2-phpunit-5:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, windows-latest ]
+        php-versions: [ '5.6', '7.0', '7.1' ]
+
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+
+      - name: Run Composer
+        uses: php-actions/composer@v6
+        with:
+          version: 2.2
+          php_version: ${{ matrix.php-versions }}
+
+      - name: Run Unit Tests
+        uses: php-actions/phpunit@v3
+        with:
+          version: 5
+          php_version: ${{ matrix.php-versions }}
+
+  php-7-composer-latest-phpunit-5:
     runs-on: ${{ matrix.operating-system }}
 
     strategy:
@@ -59,9 +91,10 @@ jobs:
       - name: Run Unit Tests
         uses: php-actions/phpunit@v3
         with:
+          version: 5
           php_version: ${{ matrix.php-versions }}
 
-  check-php-versions-for-php-unit-10:
+  php-8-composer-latest-phpunit-latest:
     runs-on: ${{ matrix.operating-system }}
 
     strategy:
