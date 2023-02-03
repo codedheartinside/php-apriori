@@ -27,7 +27,7 @@ jobs:
           php_version: ${{ matrix.php-versions }}
 
       - name: Run Unit Tests
-        uses: php-actions/phpunit@v3
+        uses: php-actions/phpunit@v1
         with:
           version: "4"
           php_version: ${{ matrix.php-versions }}
@@ -118,6 +118,6 @@ jobs:
 #        run: php vendor/bin/phpunit --migrate-configuration
 #
 #      - name: Run Unit Tests
-#        uses: php-actions/phpunit@v3
+#        uses: php-actions/phpunit@v9
 #        with:
 #          php_version: ${{ matrix.php-versions }}
