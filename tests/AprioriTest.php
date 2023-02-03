@@ -10,13 +10,10 @@ use PHPUnit\Framework\TestCase;
 
 class AprioriTest extends TestCase
 {
-    protected function setUp()
-    {
-        (new Installer())->createRunningEnvironment();
-    }
-
     public function testCalculating()
     {
+        (new Installer())->createRunningEnvironment();
+
         $aprioriConfiguration = new Configuration();
 
         // Configuring the boundries is optional
@@ -226,6 +223,8 @@ class AprioriTest extends TestCase
 
     public function testConfidenceThreshold()
     {
+        (new Installer())->createRunningEnvironment();
+
         $aprioriConfiguration = new Configuration();
 
         // Configuring the boundries is optional
@@ -256,6 +255,8 @@ class AprioriTest extends TestCase
 
     public function testSupportThreshold()
     {
+        (new Installer())->createRunningEnvironment();
+
         $aprioriConfiguration = new Configuration();
 
         // Configuring the boundries is optional
