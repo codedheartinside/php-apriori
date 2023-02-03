@@ -98,6 +98,9 @@ class AprioriTest extends TestCase
             ],
         ];
 
+        $this->assertCount(15, iterator_to_array($aprioriClass->getSupportRecords()));
+        $aprioriClass->getSupportRecords()->rewind();
+
         foreach ($aprioriClass->getSupportRecords() as $record) {
             $support = array_shift($expectedSupports);
 
@@ -210,7 +213,9 @@ class AprioriTest extends TestCase
             ],
         ];
 
-        $this->assertCount(20, $aprioriClass->getConfidenceRecords());
+        $this->assertCount(20, iterator_to_array($aprioriClass->getConfidenceRecords()));
+        $aprioriClass->getConfidenceRecords()->rewind();
+
         foreach ($aprioriClass->getConfidenceRecords() as $record) {
             $confidence = array_shift($expectedConfidences);
 
@@ -250,7 +255,7 @@ class AprioriTest extends TestCase
         $aprioriClass = new Apriori($aprioriConfiguration);
         $aprioriClass->run();
 
-        $this->assertCount(10, $aprioriClass->getConfidenceRecords());
+        $this->assertCount(10, iterator_to_array($aprioriClass->getConfidenceRecords()));
     }
 
     public function testSupportThreshold()
@@ -282,6 +287,6 @@ class AprioriTest extends TestCase
         $aprioriClass = new Apriori($aprioriConfiguration);
         $aprioriClass->run();
 
-        $this->assertCount(3, $aprioriClass->getSupportRecords());
+        $this->assertCount(3, iterator_to_array($aprioriClass->getSupportRecords()));
     }
 }
