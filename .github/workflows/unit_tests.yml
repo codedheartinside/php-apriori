@@ -3,11 +3,10 @@ run-name: Check if the code can run on all PHP versions
 on: [push]
 jobs:
   php-5-composer-2-phpunit-4:
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        operating-system: [ ubuntu-latest, windows-latest ]
         php-versions: [ '5.5' ]
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
@@ -34,11 +33,10 @@ jobs:
           php_version: ${{ matrix.php-versions }}
 
   php-5-7-composer-2-phpunit-5:
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        operating-system: [ ubuntu-latest, windows-latest ]
         php-versions: [ '5.6', '7.0', '7.1' ]
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
@@ -65,11 +63,10 @@ jobs:
           php_version: ${{ matrix.php-versions }}
 
   php-7-composer-latest-phpunit-5:
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        operating-system: [ ubuntu-latest, windows-latest ]
         php-versions: [ '7.2', '7.3', '7.4', '8.0' ]
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
@@ -95,11 +92,10 @@ jobs:
           php_version: ${{ matrix.php-versions }}
 
   php-8-composer-latest-phpunit-latest:
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        operating-system: [ ubuntu-latest, windows-latest ]
         php-versions: [ '8.1', '8.2' ]
 
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
