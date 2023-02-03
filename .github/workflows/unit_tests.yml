@@ -112,6 +112,6 @@ jobs:
         run: php vendor/bin/phpunit --migrate-configuration
 
       - name: Run Unit Tests
-        uses: php-actions/phpunit@v9
+        uses: php-actions/phpunit@v3
         with:
           php_version: ${{ matrix.php-versions }}
